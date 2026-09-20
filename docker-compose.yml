@@ -1,0 +1,14 @@
+services:
+  neo4j-szakdoga:
+    image: neo4j:latest
+    container_name: neo4j-szakdoga
+    ports:
+      - "7474:7474"   # Böngészős felület
+      - "7687:7687"   # Bolt protokoll a Spring Bootnak
+    environment:
+      - NEO4J_AUTH=neo4j/SzakdogaJelszo123
+    volumes:
+      - neo4j_data:/data   # Ide menti a gráf adatait perzisztensen
+
+volumes:
+  neo4j_data:
