@@ -1,0 +1,7 @@
+/home/zserbo/Downloads/szte-bsc-thesis-familytree-maker/backend/src/main/java/hu/szte/familytree/FamilyTreeMakerApplication.java
+/home/zserbo/Downloads/szte-bsc-thesis-familytree-maker/backend/src/main/java/hu/szte/familytree/model/Csalad.java
+/home/zserbo/Downloads/szte-bsc-thesis-familytree-maker/backend/src/main/java/hu/szte/familytree/model/Kep.java
+/home/zserbo/Downloads/szte-bsc-thesis-familytree-maker/backend/src/main/java/hu/szte/familytree/model/Szemely.java
+/home/zserbo/Downloads/szte-bsc-thesis-familytree-maker/backend/src/main/java/hu/szte/familytree/model/SzerepelRajta.java
+/home/zserbo/Downloads/szte-bsc-thesis-familytree-maker/backend/src/main/java/hu/szte/familytree/repository/SzemelyRepository.java
+/home/zserbo/Downloads/szte-bsc-thesis-familytree-maker/backend/src/main/java/hu/szte/familytree/service/GedcomParserService.java

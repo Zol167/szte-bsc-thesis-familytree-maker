@@ -12,3 +12,5 @@ services:
 
 volumes:
   neo4j_data:
+
+#MATCH (n)-[r]->(m) RETURN n, r, m
