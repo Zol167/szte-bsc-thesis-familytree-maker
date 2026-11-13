@@ -1,6 +1,6 @@
 services:
   neo4j-szakdoga:
-    image: neo4j:latest
+    image: neo4j:5.26-community
     container_name: neo4j-szakdoga
     ports:
       - "7474:7474"   # Böngészős felület
@@ -12,5 +12,4 @@ services:
 
 volumes:
   neo4j_data:
-
-#MATCH (n)-[r]->(m) RETURN n, r, m
+  

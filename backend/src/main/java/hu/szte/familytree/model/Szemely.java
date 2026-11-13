@@ -1,37 +1,39 @@
 package hu.szte.familytree.model;
 
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
+import java.util.ArrayList;
 import java.util.List;
 
+// A családi kapcsolatok (szülő, gyermek, házastárs) a Csalad csomóponton keresztül élnek,
+// így a Szemely entitásból nem indul ki kör, és egy személy betöltése nem húzza be az egész gráfot.
 @Node("Szemely")
 public class Szemely {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
-    @Transient // Ezt a Neo4j nem fogja elmenteni, csak a parser használja
     private String gedcomId;
 
     private String keresztnev;
     private String vezeteknev;
+    private String nem; // GEDCOM SEX: M, F, U
     private String szuletesiDatum;
+    private Integer szuletesiEv; // Az ütközés-detektáláshoz (név + születési év)
     private String halalozasiDatum;
 
-    // Kapcsolat a másik csomóponthoz (gyermek)
-    @Relationship(type = "GYERMEKE", direction = Relationship.Direction.OUTGOING)
-    private List<Szemely> gyermekek;
-
-    // Kapcsolat a gazdag éllel (kép koordináták)
+    // Képek inicializálása
     @Relationship(type = "SZEREPEL_RAJTA")
-    private List<SzerepelRajta> szereplesekKepeken;
+    private List<SzerepelRajta> szereplesekKepeken = new ArrayList<>();
 
     public Szemely() {
     }
+
+    // --- Getterek és Setterek ---
 
     public Long getId() {
         return id;
@@ -65,6 +67,14 @@ public class Szemely {
         this.vezeteknev = vezeteknev;
     }
 
+    public String getNem() {
+        return nem;
+    }
+
+    public void setNem(String nem) {
+        this.nem = nem;
+    }
+
     public String getSzuletesiDatum() {
         return szuletesiDatum;
     }
@@ -73,20 +83,20 @@ public class Szemely {
         this.szuletesiDatum = szuletesiDatum;
     }
 
+    public Integer getSzuletesiEv() {
+        return szuletesiEv;
+    }
+
+    public void setSzuletesiEv(Integer szuletesiEv) {
+        this.szuletesiEv = szuletesiEv;
+    }
+
     public String getHalalozasiDatum() {
         return halalozasiDatum;
     }
 
     public void setHalalozasiDatum(String halalozasiDatum) {
         this.halalozasiDatum = halalozasiDatum;
-    }
-
-    public List<Szemely> getGyermekek() {
-        return gyermekek;
-    }
-
-    public void setGyermekek(List<Szemely> gyermekek) {
-        this.gyermekek = gyermekek;
     }
 
     public List<SzerepelRajta> getSzereplesekKepeken() {
