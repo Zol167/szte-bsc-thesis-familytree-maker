@@ -69,6 +69,15 @@ class GedcomRoundTripTest {
         assertEquals(List.of("@I3@"), idk(csaladok.get("@F2@").getGyermekek()));
     }
 
+    @Test
+    void grafEpitesBeallitjaAzEgyezesKulcsot() {
+        Csaladfa fa = beolvas(getClass().getResourceAsStream("/dummy.ged"));
+        Map<String, Szemely> szemelyek = szerintGedcomId(fa.getSzemelyek(), Szemely::getGedcomId);
+        assertEquals("williams|robert eugene|1822", szemelyek.get("@I1@").getEgyezesKulcs());
+        assertEquals("wilson|mary ann|1828", szemelyek.get("@I2@").getEgyezesKulcs());
+        assertEquals("williams|joe|1861", szemelyek.get("@I3@").getEgyezesKulcs());
+    }
+
     private static List<String> idk(List<Szemely> szemelyek) {
         return szemelyek.stream().map(Szemely::getGedcomId).sorted().toList();
     }

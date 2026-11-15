@@ -26,6 +26,9 @@ public class Szemely {
     private Integer szuletesiEv; // Az ütközés-detektáláshoz (név + születési év)
     private String halalozasiDatum;
 
+    // Normalizált "vezetéknév|keresztnév|év" kulcs, indexelve: a pontos egyezés indexkereséssé válik
+    private String egyezesKulcs;
+
     // Képek inicializálása
     @Relationship(type = "SZEREPEL_RAJTA")
     private List<SzerepelRajta> szereplesekKepeken = new ArrayList<>();
@@ -97,6 +100,14 @@ public class Szemely {
 
     public void setHalalozasiDatum(String halalozasiDatum) {
         this.halalozasiDatum = halalozasiDatum;
+    }
+
+    public String getEgyezesKulcs() {
+        return egyezesKulcs;
+    }
+
+    public void setEgyezesKulcs(String egyezesKulcs) {
+        this.egyezesKulcs = egyezesKulcs;
     }
 
     public List<SzerepelRajta> getSzereplesekKepeken() {

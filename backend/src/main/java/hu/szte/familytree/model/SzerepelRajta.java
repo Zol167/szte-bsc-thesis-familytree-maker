@@ -9,11 +9,15 @@ public class SzerepelRajta {
     @RelationshipId
     private Long id;
 
-    // A kép-taggelés koordinátái közvetlenül a kapcsolaton!
-    private int xPozicio;
-    private int yPozicio;
-    private int szelesseg;
-    private int magassag;
+    // A kép-taggelés kerete közvetlenül a kapcsolaton, a kép méretéhez viszonyítva (0–1),
+    // így a frontend bármilyen méretben kirajzolhatja átszámítás nélkül
+    private double xPozicio;
+    private double yPozicio;
+    private double szelesseg;
+    private double magassag;
+
+    // Ha igaz, ez a keret a személy profilképe (a frontend ezt a részt vágja ki a fotóból)
+    private boolean profilkep;
 
     @TargetNode
     private Kep kep;
@@ -21,48 +25,48 @@ public class SzerepelRajta {
     public SzerepelRajta() {
     }
 
-    public SzerepelRajta(Kep kep, int xPozicio, int yPozicio, int szelesseg, int magassag) {
-        this.kep = kep;
-        this.xPozicio = xPozicio;
-        this.yPozicio = yPozicio;
-        this.szelesseg = szelesseg;
-        this.magassag = magassag;
-    }
-
     public Long getId() {
         return id;
     }
 
-    public int getxPozicio() {
+    public double getxPozicio() {
         return xPozicio;
     }
 
-    public void setxPozicio(int xPozicio) {
+    public void setxPozicio(double xPozicio) {
         this.xPozicio = xPozicio;
     }
 
-    public int getyPozicio() {
+    public double getyPozicio() {
         return yPozicio;
     }
 
-    public void setyPozicio(int yPozicio) {
+    public void setyPozicio(double yPozicio) {
         this.yPozicio = yPozicio;
     }
 
-    public int getSzelesseg() {
+    public double getSzelesseg() {
         return szelesseg;
     }
 
-    public void setSzelesseg(int szelesseg) {
+    public void setSzelesseg(double szelesseg) {
         this.szelesseg = szelesseg;
     }
 
-    public int getMagassag() {
+    public double getMagassag() {
         return magassag;
     }
 
-    public void setMagassag(int magassag) {
+    public void setMagassag(double magassag) {
         this.magassag = magassag;
+    }
+
+    public boolean isProfilkep() {
+        return profilkep;
+    }
+
+    public void setProfilkep(boolean profilkep) {
+        this.profilkep = profilkep;
     }
 
     public Kep getKep() {

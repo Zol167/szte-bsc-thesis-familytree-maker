@@ -1,6 +1,10 @@
 # Maven build output
 target/
 
+# Feltöltött fotók és a demóhoz használt saját kép
+feltoltesek/
+backend/demo-kep.jpg
+
 # IDE
 .idea/
 .vscode/

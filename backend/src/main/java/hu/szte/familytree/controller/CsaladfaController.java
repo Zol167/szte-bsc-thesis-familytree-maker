@@ -2,21 +2,19 @@ package hu.szte.familytree.controller;
 
 import hu.szte.familytree.dto.CsaladfaGrafDto;
 import hu.szte.familytree.dto.CsaladfaOsszegzesDto;
-import hu.szte.familytree.model.Csaladfa;
 import hu.szte.familytree.service.CsaladfaService;
-import hu.szte.familytree.service.GedcomParseException;
-import hu.szte.familytree.service.GrafEpitoService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,30 +22,27 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/csaladfak")
 @CrossOrigin(origins = "*") // Engedélyezi, hogy a Vue.js (másik porton) hozzáférjen az adatokhoz
 public class CsaladfaController {
 
-    private final GrafEpitoService grafEpitoService;
     private final CsaladfaService csaladfaService;
 
-    public CsaladfaController(GrafEpitoService grafEpitoService, CsaladfaService csaladfaService) {
-        this.grafEpitoService = grafEpitoService;
+    public CsaladfaController(CsaladfaService csaladfaService) {
         this.csaladfaService = csaladfaService;
     }
 
-    // GEDCOM feltöltés: multipart/form-data, mezők: fajl, nev, tulajdonos
+    // GEDCOM feltöltés: multipart/form-data, mezők: fajl, nev, tulajdonos.
+    // A válasz egyezesDb mezője az importkor talált lehetséges egyezések száma más felhasználók fáival.
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @org.springframework.web.bind.annotation.ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)
     public CsaladfaOsszegzesDto importalas(@RequestParam("fajl") MultipartFile fajl,
                                            @RequestParam String nev,
                                            @RequestParam String tulajdonos) throws IOException {
         try (InputStream is = fajl.getInputStream()) {
-            Csaladfa fa = grafEpitoService.importalas(is, nev, tulajdonos);
-            return CsaladfaOsszegzesDto.bol(fa);
+            return csaladfaService.importalas(is, nev, tulajdonos);
         }
     }
 
@@ -71,8 +66,9 @@ public class CsaladfaController {
                 .body(tartalom);
     }
 
-    @ExceptionHandler(GedcomParseException.class)
-    public ResponseEntity<Map<String, String>> hibasGedcom(GedcomParseException e) {
-        return ResponseEntity.badRequest().body(Map.of("hiba", e.getMessage()));
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void torles(@PathVariable Long id) {
+        csaladfaService.torles(id);
     }
 }

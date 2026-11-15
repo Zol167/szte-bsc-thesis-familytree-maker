@@ -1,8 +1,8 @@
 package hu.szte.familytree;
 
-import hu.szte.familytree.model.Csaladfa;
+import hu.szte.familytree.dto.CsaladfaOsszegzesDto;
 import hu.szte.familytree.repository.CsaladfaRepository;
-import hu.szte.familytree.service.GrafEpitoService;
+import hu.szte.familytree.service.CsaladfaService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,7 +23,7 @@ public class FamilyTreeMakerApplication {
     // Kikapcsolható: familytree.demo-import=false
     @Bean
     @ConditionalOnProperty(name = "familytree.demo-import", havingValue = "true")
-    CommandLineRunner demoImport(GrafEpitoService grafEpitoService, CsaladfaRepository csaladfaRepository) {
+    CommandLineRunner demoImport(CsaladfaService csaladfaService, CsaladfaRepository csaladfaRepository) {
         return args -> {
             System.out.println("--- GEDCOM Parser és Gráfépítés Demó ---");
             if (csaladfaRepository.count() > 0) {
@@ -31,10 +31,11 @@ public class FamilyTreeMakerApplication {
                 return;
             }
             try (InputStream is = new ClassPathResource("dummy.ged").getInputStream()) {
-                Csaladfa fa = grafEpitoService.importalas(is, "Demo", "demo");
-                System.out.println("Beolvasott személyek száma: " + fa.getSzemelyek().size());
-                System.out.println("Beolvasott családok száma: " + fa.getCsaladok().size());
-                System.out.println("Neo4j mentés kész, családfa azonosító: " + fa.getId());
+                CsaladfaOsszegzesDto fa = csaladfaService.importalas(is, "Demo", "demo");
+                System.out.println("Beolvasott személyek száma: " + fa.szemelyDb());
+                System.out.println("Beolvasott családok száma: " + fa.csaladDb());
+                System.out.println("Neo4j mentés kész, családfa azonosító: " + fa.id());
+                System.out.println("Talált lehetséges egyezések más felhasználók fáival: " + fa.egyezesDb());
             } catch (Exception e) {
                 System.out.println("Hiba történt a feldolgozás vagy mentés során.");
                 e.printStackTrace();

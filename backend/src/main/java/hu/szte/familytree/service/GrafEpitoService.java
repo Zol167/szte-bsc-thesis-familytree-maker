@@ -30,6 +30,10 @@ public class GrafEpitoService {
         Map<String, Szemely> szemelyek = adat.getSzemelyek();
         Csaladfa fa = new Csaladfa(nev, tulajdonos);
         fa.getSzemelyek().addAll(szemelyek.values());
+        // Az ütközés-detektálás kulcsa importkor készül el (normalizált név + születési év)
+        for (Szemely szemely : szemelyek.values()) {
+            szemely.setEgyezesKulcs(EgyezesKulcs.keszit(szemely));
+        }
 
         for (Csalad csalad : adat.getCsaladok().values()) {
             csalad.getSzulok().clear();

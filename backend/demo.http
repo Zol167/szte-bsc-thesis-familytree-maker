@@ -1,0 +1,124 @@
+# 4. sprint konzultációs demó – VS Code "REST Client" bővítmény (humao.rest-client)
+# Futtatás: a kérések fölötti "Send Request" linkre kattintva, felülről lefelé.
+# Előfeltétel: docker compose up -d, mvn spring-boot:run (a dummy.ged "Demo" fa induláskor betöltődik),
+# és egy saját családi fotó a backend/demo-kep.jpg helyen (gitignore-olva, nem kerül a repóba).
+
+@host = http://localhost:8080
+
+# Az alábbi változók a korábbi kérések válaszaiból jönnek (küldéskor oldódnak fel)
+@demoFaId = {{lista.response.body.$[0].id}}
+@belaFaId = {{belaImport.response.body.$.id}}
+@kepId = {{kep.response.body.$.id}}
+@szemely1 = {{graf.response.body.$.szemelyek[0].id}}
+@szemely2 = {{graf.response.body.$.szemelyek[1].id}}
+
+### 1. Családfák listája (az első a "Demo" fa, tulajdonosa: demo)
+# @name lista
+GET {{host}}/api/csaladfak
+
+### 2. Egy másik felhasználó (bela) fájának importja -> az ütközés-detektálás azonnal lefut (egyezesDb)
+# @name belaImport
+POST {{host}}/api/csaladfak
+Content-Type: multipart/form-data; boundary=HATAR
+
+--HATAR
+Content-Disposition: form-data; name="nev"
+
+Williams-ág
+--HATAR
+Content-Disposition: form-data; name="tulajdonos"
+
+bela
+--HATAR
+Content-Disposition: form-data; name="fajl"; filename="dummy2.ged"
+Content-Type: text/plain
+
+< ./src/main/resources/dummy2.ged
+--HATAR--
+
+### 3a. A demo felhasználó értesítései (2 olvasatlan: Robert Eugene és Joe Williams; Mary Ann Wilson nem egyezik pontosan)
+# @name demoErtesitesek
+GET {{host}}/api/egyezesek?tulajdonos=demo
+
+### 3b. Béla értesítései: ugyanazok az egyezések az ő szemszögéből
+GET {{host}}/api/egyezesek?tulajdonos=bela
+
+### 4. Egy értesítés olvasottnak jelölése (csak a demo felhasználónál lesz olvasott)
+PATCH {{host}}/api/egyezesek/{{demoErtesitesek.response.body.$.egyezesek[0].id}}/olvasott?tulajdonos=demo
+
+### 4b. Ellenőrzés: a demo felhasználónál már csak 1 olvasatlan
+GET {{host}}/api/egyezesek?tulajdonos=demo
+
+### 5. Fotó feltöltése a Demo fába
+# @name kep
+POST {{host}}/api/csaladfak/{{demoFaId}}/kepek
+Content-Type: multipart/form-data; boundary=HATAR
+
+--HATAR
+Content-Disposition: form-data; name="leiras"
+
+Családi fotó
+--HATAR
+Content-Disposition: form-data; name="fajl"; filename="demo-kep.jpg"
+Content-Type: image/jpeg
+
+< ./demo-kep.jpg
+--HATAR--
+
+### 6. A Demo fa gráfja: innen jönnek a személyek azonosítói
+# @name graf
+GET {{host}}/api/csaladfak/{{demoFaId}}/graf
+
+### 7a. Első személy megjelölése a fotón (relatív koordináták: 0–1, a kép méretéhez képest)
+PUT {{host}}/api/kepek/{{kepId}}/cimkek/{{szemely1}}
+Content-Type: application/json
+
+{"x": 0.10, "y": 0.15, "szelesseg": 0.25, "magassag": 0.40}
+
+### 7b. Második személy megjelölése
+PUT {{host}}/api/kepek/{{kepId}}/cimkek/{{szemely2}}
+Content-Type: application/json
+
+{"x": 0.55, "y": 0.20, "szelesseg": 0.25, "magassag": 0.40}
+
+### 8. Keret áthelyezése (ugyanaz a végpont: személyenként egy keret képenként)
+PUT {{host}}/api/kepek/{{kepId}}/cimkek/{{szemely1}}
+Content-Type: application/json
+
+{"x": 0.05, "y": 0.10, "szelesseg": 0.30, "magassag": 0.45}
+
+### 9. Hibás keret (kilóg a képből) -> 400 {"hiba": ...}
+PUT {{host}}/api/kepek/{{kepId}}/cimkek/{{szemely1}}
+Content-Type: application/json
+
+{"x": 0.80, "y": 0.10, "szelesseg": 0.50, "magassag": 0.20}
+
+### 10. A kép a címkékkel
+GET {{host}}/api/kepek/{{kepId}}
+
+### 11. Maga a képfájl
+GET {{host}}/api/kepek/{{kepId}}/fajl
+
+### 12. Profilkép beállítása: az első személy kerete ezen a fotón
+PUT {{host}}/api/szemelyek/{{szemely1}}/profilkep
+Content-Type: application/json
+
+{"kepId": {{kepId}}}
+
+### 13. A gráfban megjelenik a profilkép (profilkepek)
+GET {{host}}/api/csaladfak/{{demoFaId}}/graf
+
+### 14. Az első személy fotói
+GET {{host}}/api/szemelyek/{{szemely1}}/kepek
+
+### 15. Címke törlése
+DELETE {{host}}/api/kepek/{{kepId}}/cimkek/{{szemely2}}
+
+### 16. Teljes újrakeresés minden fa között (idempotens: nem keletkezik új él)
+POST {{host}}/api/egyezesek/ujrakereses
+
+### 17. Takarítás: Béla fájának törlése (az egyezések is törlődnek)
+DELETE {{host}}/api/csaladfak/{{belaFaId}}
+
+### 18. Fotó törlése (a fájl is lekerül a lemezről)
+DELETE {{host}}/api/kepek/{{kepId}}
