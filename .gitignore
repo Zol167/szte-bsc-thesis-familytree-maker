@@ -1,6 +1,10 @@
 # Maven build output
 target/
 
+# Frontend: függőségek és éles build
+node_modules/
+dist/
+
 # Feltöltött fotók és a demóhoz használt saját kép
 feltoltesek/
 backend/demo-kep.jpg

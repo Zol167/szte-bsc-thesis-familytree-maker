@@ -1,0 +1,161 @@
+:root {
+  --hatter: #f4f1ea;
+  --felulet: #ffffff;
+  --szoveg: #2b2620;
+  --halvany: #7a7168;
+  --vonal: #8c8379;
+  --keret: #d8d1c5;
+  --ferfi: #4a78c2;
+  --no: #c2577a;
+  --ismeretlen: #9a9187;
+  --hiba: #b3261e;
+  --figyelmeztetes: #8a5a00;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--szoveg);
+  background: var(--hatter);
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.fejlec {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--felulet);
+  border-bottom: 1px solid var(--keret);
+}
+
+.fejlec h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.fa-valaszto {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fa-valaszto select {
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+}
+
+.statisztika {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 0;
+}
+
+.statisztika div {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.statisztika dt {
+  color: var(--halvany);
+}
+
+.statisztika dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.tartalom {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.uzenet {
+  margin: 1rem 1.25rem;
+}
+
+.uzenet.hiba {
+  color: var(--hiba);
+}
+
+.uzenet.figyelmeztetes {
+  color: var(--figyelmeztetes);
+  padding-left: 1.25rem;
+}
+
+/* A rajz akkora, amekkorát az elrendezés kiszámolt; ami nem fér ki, görgethető */
+.rajzlap {
+  flex: 1;
+  overflow: auto;
+}
+
+.csaladfa-rajz {
+  display: block;
+}
+
+/* a viewBox miatt arányosan kicsinyedik, hogy az egész fa beférjen */
+.csaladfa-rajz.igazitott {
+  width: 100%;
+  height: 100%;
+}
+
+.kapcsolo {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.vonalak path {
+  fill: none;
+  stroke: var(--vonal);
+  stroke-width: 1.5;
+}
+
+.vonalak .hazassag {
+  stroke-width: 2.5;
+}
+
+.szemely-kartya .hatter {
+  fill: var(--felulet);
+  stroke: var(--keret);
+}
+
+.szemely-kartya .nem-jelzo {
+  fill: var(--ismeretlen);
+}
+
+.szemely-kartya.ferfi .nem-jelzo {
+  fill: var(--ferfi);
+}
+
+.szemely-kartya.no .nem-jelzo {
+  fill: var(--no);
+}
+
+.szemely-kartya text {
+  fill: var(--szoveg);
+}
+
+.szemely-kartya .vezeteknev {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.szemely-kartya .keresztnev {
+  font-size: 13px;
+}
+
+.szemely-kartya .evek {
+  font-size: 11px;
+  fill: var(--halvany);
+}

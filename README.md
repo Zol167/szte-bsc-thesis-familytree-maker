@@ -12,12 +12,44 @@ mvn spring-boot:run                  # első indításkor a dummy.ged betöltőd
 A demó import kikapcsolható: `familytree.demo-import=false` (`application.properties`).
 A feltöltött fotók a `backend/feltoltesek/` könyvtárba kerülnek (`familytree.kep-konyvtar`), a feltöltési korlát 50 MB.
 
+### Frontend (Vue 3 + TypeScript, Node.js 24 LTS)
+
+```bash
+cd frontend
+npm install
+npm run dev                          # http://localhost:5173 – a /api kéréseket a Vite a backendhez (8080) továbbítja
+```
+
+Egy adott fa közvetlenül is megnyitható: `http://localhost:5173/?fa=<családfa azonosító>`.
+A rajz a saját elrendező algoritmussal készül (külső elrendező modul nélkül, natív SVG-vel).
+Az algoritmus leírása, mérései és irodalma: [frontend/ELRENDEZES.md](frontend/ELRENDEZES.md).
+
+### Demó adatok
+
+A `demo-adatok/kovacs-csalad.ged` egy hat generációs, 39 fős magyar családfa. Szándékosan tartalmazza
+az elrendezés nehéz eseteit:
+- többszörös házasság (Kovács Péter)
+- unokatestvérek házassága, azaz ősvesztés (Horváth Béla és Kovács Margit)
+- beházasodott házastárs ismert szülőkkel (Fekete Rózsa)
+- egyszülős család
+
+Importálása: a `backend/demo.http` 19. kérése, vagy:
+
+```bash
+curl -F fajl=@demo-adatok/kovacs-csalad.ged -F nev="Kovács család" -F tulajdonos=demo localhost:8080/api/csaladfak
+```
+
 ## Tesztek
 
 ```bash
 cd backend
 mvn test     # egységtesztek (parser, export, egyezési kulcs, képtárolás) – Docker nélkül
 mvn verify   # + integrációs tesztek valódi Neo4j-jel (Testcontainers, neo4j:5.26-community)
+
+cd frontend
+npm test                    # az elrendező algoritmus és a komponensek tesztjei (Vitest)
+npm run tipusellenorzes     # TypeScript típusellenőrzés (vue-tsc)
+npm run build               # éles build a dist/ könyvtárba
 ```
 
 A `mvn verify`-hez a felhasználónak sudo nélkül kell elérnie a Dockert (`docker` csoport tagsága).

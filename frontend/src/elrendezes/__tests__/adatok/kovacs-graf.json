@@ -1,0 +1,601 @@
+{
+  "id": 6,
+  "nev": "Kovács család",
+  "tulajdonos": "demo",
+  "szemelyek": [
+    {
+      "id": 42,
+      "gedcomId": "@I36@",
+      "keresztnev": "Péter",
+      "vezeteknev": "Horváth",
+      "nem": "M",
+      "szuletesiDatum": "1955",
+      "szuletesiEv": 1955,
+      "halalozasiDatum": null
+    },
+    {
+      "id": 31,
+      "gedcomId": "@I25@",
+      "keresztnev": "Irén",
+      "vezeteknev": "Horváth",
+      "nem": "F",
+      "szuletesiDatum": "1897",
+      "szuletesiEv": 1897,
+      "halalozasiDatum": "1985"
+    },
+    {
+      "id": 34,
+      "gedcomId": "@I28@",
+      "keresztnev": "Imre",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1920",
+      "szuletesiEv": 1920,
+      "halalozasiDatum": "1995"
+    },
+    {
+      "id": 7,
+      "gedcomId": "@I1@",
+      "keresztnev": "István",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "12 MAR 1842",
+      "szuletesiEv": 1842,
+      "halalozasiDatum": "1910"
+    },
+    {
+      "id": 8,
+      "gedcomId": "@I2@",
+      "keresztnev": "Erzsébet",
+      "vezeteknev": "Szabó",
+      "nem": "F",
+      "szuletesiDatum": "1846",
+      "szuletesiEv": 1846,
+      "halalozasiDatum": "1915"
+    },
+    {
+      "id": 9,
+      "gedcomId": "@I3@",
+      "keresztnev": "József",
+      "vezeteknev": "Tóth",
+      "nem": "M",
+      "szuletesiDatum": "1840",
+      "szuletesiEv": 1840,
+      "halalozasiDatum": "1902"
+    },
+    {
+      "id": 10,
+      "gedcomId": "@I4@",
+      "keresztnev": "Mária",
+      "vezeteknev": "Kiss",
+      "nem": "F",
+      "szuletesiDatum": "1845",
+      "szuletesiEv": 1845,
+      "halalozasiDatum": "1920"
+    },
+    {
+      "id": 11,
+      "gedcomId": "@I5@",
+      "keresztnev": "Mihály",
+      "vezeteknev": "Horváth",
+      "nem": "M",
+      "szuletesiDatum": "1838",
+      "szuletesiEv": 1838,
+      "halalozasiDatum": "1900"
+    },
+    {
+      "id": 12,
+      "gedcomId": "@I6@",
+      "keresztnev": "Teréz",
+      "vezeteknev": "Balogh",
+      "nem": "F",
+      "szuletesiDatum": "1842",
+      "szuletesiEv": 1842,
+      "halalozasiDatum": "1912"
+    },
+    {
+      "id": 13,
+      "gedcomId": "@I7@",
+      "keresztnev": "János",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1868",
+      "szuletesiEv": 1868,
+      "halalozasiDatum": "1935"
+    },
+    {
+      "id": 14,
+      "gedcomId": "@I8@",
+      "keresztnev": "Anna",
+      "vezeteknev": "Kovács",
+      "nem": "F",
+      "szuletesiDatum": "1871",
+      "szuletesiEv": 1871,
+      "halalozasiDatum": "1950"
+    },
+    {
+      "id": 15,
+      "gedcomId": "@I9@",
+      "keresztnev": "Péter",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1874",
+      "szuletesiEv": 1874,
+      "halalozasiDatum": "1940"
+    },
+    {
+      "id": 16,
+      "gedcomId": "@I10@",
+      "keresztnev": "Katalin",
+      "vezeteknev": "Tóth",
+      "nem": "F",
+      "szuletesiDatum": "1870",
+      "szuletesiEv": 1870,
+      "halalozasiDatum": "1944"
+    },
+    {
+      "id": 17,
+      "gedcomId": "@I11@",
+      "keresztnev": "Ilona",
+      "vezeteknev": "Tóth",
+      "nem": "F",
+      "szuletesiDatum": "1873",
+      "szuletesiEv": 1873,
+      "halalozasiDatum": "1960"
+    },
+    {
+      "id": 18,
+      "gedcomId": "@I12@",
+      "keresztnev": "Lajos",
+      "vezeteknev": "Horváth",
+      "nem": "M",
+      "szuletesiDatum": "1866",
+      "szuletesiEv": 1866,
+      "halalozasiDatum": "1930"
+    },
+    {
+      "id": 19,
+      "gedcomId": "@I13@",
+      "keresztnev": "Julianna",
+      "vezeteknev": "Nagy",
+      "nem": "F",
+      "szuletesiDatum": "1876",
+      "szuletesiEv": 1876,
+      "halalozasiDatum": "1902"
+    },
+    {
+      "id": 20,
+      "gedcomId": "@I14@",
+      "keresztnev": "Rozália",
+      "vezeteknev": "Varga",
+      "nem": "F",
+      "szuletesiDatum": "1880",
+      "szuletesiEv": 1880,
+      "halalozasiDatum": "1955"
+    },
+    {
+      "id": 21,
+      "gedcomId": "@I15@",
+      "keresztnev": "Géza",
+      "vezeteknev": "Molnár",
+      "nem": "M",
+      "szuletesiDatum": "1869",
+      "szuletesiEv": 1869,
+      "halalozasiDatum": "1925"
+    },
+    {
+      "id": 22,
+      "gedcomId": "@I16@",
+      "keresztnev": "Antal",
+      "vezeteknev": "Fekete",
+      "nem": "M",
+      "szuletesiDatum": "1865",
+      "szuletesiEv": 1865,
+      "halalozasiDatum": "1930"
+    },
+    {
+      "id": 23,
+      "gedcomId": "@I17@",
+      "keresztnev": "Éva",
+      "vezeteknev": "Lukács",
+      "nem": "F",
+      "szuletesiDatum": "1870",
+      "szuletesiEv": 1870,
+      "halalozasiDatum": "1940"
+    },
+    {
+      "id": 24,
+      "gedcomId": "@I18@",
+      "keresztnev": "Ferenc",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1892",
+      "szuletesiEv": 1892,
+      "halalozasiDatum": "1965"
+    },
+    {
+      "id": 25,
+      "gedcomId": "@I19@",
+      "keresztnev": "Margit",
+      "vezeteknev": "Kovács",
+      "nem": "F",
+      "szuletesiDatum": "1895",
+      "szuletesiEv": 1895,
+      "halalozasiDatum": "1980"
+    },
+    {
+      "id": 26,
+      "gedcomId": "@I20@",
+      "keresztnev": "Sándor",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1898",
+      "szuletesiEv": 1898,
+      "halalozasiDatum": "1944"
+    },
+    {
+      "id": 27,
+      "gedcomId": "@I21@",
+      "keresztnev": "Gyula",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1899",
+      "szuletesiEv": 1899,
+      "halalozasiDatum": "1970"
+    },
+    {
+      "id": 28,
+      "gedcomId": "@I22@",
+      "keresztnev": "Erzsébet",
+      "vezeteknev": "Kovács",
+      "nem": "F",
+      "szuletesiDatum": "1905",
+      "szuletesiEv": 1905,
+      "halalozasiDatum": "1990"
+    },
+    {
+      "id": 40,
+      "gedcomId": "@I34@",
+      "keresztnev": "Tamás",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1950",
+      "szuletesiEv": 1950,
+      "halalozasiDatum": null
+    },
+    {
+      "id": 37,
+      "gedcomId": "@I31@",
+      "keresztnev": "Klára",
+      "vezeteknev": "Molnár",
+      "nem": "F",
+      "szuletesiDatum": "1930",
+      "szuletesiEv": 1930,
+      "halalozasiDatum": null
+    },
+    {
+      "id": 35,
+      "gedcomId": "@I29@",
+      "keresztnev": "Éva",
+      "vezeteknev": "Kovács",
+      "nem": "F",
+      "szuletesiDatum": "1923",
+      "szuletesiEv": 1923,
+      "halalozasiDatum": "2010"
+    },
+    {
+      "id": 43,
+      "gedcomId": "@I37@",
+      "keresztnev": "Krisztina",
+      "vezeteknev": "Lengyel",
+      "nem": "F",
+      "szuletesiDatum": "1952",
+      "szuletesiEv": 1952,
+      "halalozasiDatum": null
+    },
+    {
+      "id": 45,
+      "gedcomId": "@I39@",
+      "keresztnev": "Réka",
+      "vezeteknev": "Kovács",
+      "nem": "F",
+      "szuletesiDatum": "1983",
+      "szuletesiEv": 1983,
+      "halalozasiDatum": null
+    },
+    {
+      "id": 38,
+      "gedcomId": "@I32@",
+      "keresztnev": "Gábor",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1930",
+      "szuletesiEv": 1930,
+      "halalozasiDatum": null
+    },
+    {
+      "id": 39,
+      "gedcomId": "@I33@",
+      "keresztnev": "Ágnes",
+      "vezeteknev": "Szűts",
+      "nem": "F",
+      "szuletesiDatum": "1924",
+      "szuletesiEv": 1924,
+      "halalozasiDatum": "2015"
+    },
+    {
+      "id": 36,
+      "gedcomId": "@I30@",
+      "keresztnev": "Ödön",
+      "vezeteknev": "Horváth",
+      "nem": "M",
+      "szuletesiDatum": "1921",
+      "szuletesiEv": 1921,
+      "halalozasiDatum": "2001"
+    },
+    {
+      "id": 44,
+      "gedcomId": "@I38@",
+      "keresztnev": "Dániel",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1980",
+      "szuletesiEv": 1980,
+      "halalozasiDatum": null
+    },
+    {
+      "id": 41,
+      "gedcomId": "@I35@",
+      "keresztnev": "Zsuzsanna",
+      "vezeteknev": "Kovács",
+      "nem": "F",
+      "szuletesiDatum": "1953",
+      "szuletesiEv": 1953,
+      "halalozasiDatum": null
+    },
+    {
+      "id": 33,
+      "gedcomId": "@I27@",
+      "keresztnev": "Rózsa",
+      "vezeteknev": "Fekete",
+      "nem": "F",
+      "szuletesiDatum": "1897",
+      "szuletesiEv": 1897,
+      "halalozasiDatum": "1975"
+    },
+    {
+      "id": 29,
+      "gedcomId": "@I23@",
+      "keresztnev": "László",
+      "vezeteknev": "Kovács",
+      "nem": "M",
+      "szuletesiDatum": "1908",
+      "szuletesiEv": 1908,
+      "halalozasiDatum": "1978"
+    },
+    {
+      "id": 30,
+      "gedcomId": "@I24@",
+      "keresztnev": "Béla",
+      "vezeteknev": "Horváth",
+      "nem": "M",
+      "szuletesiDatum": "1894",
+      "szuletesiEv": 1894,
+      "halalozasiDatum": "1960"
+    },
+    {
+      "id": 32,
+      "gedcomId": "@I26@",
+      "keresztnev": "Zoltán",
+      "vezeteknev": "Molnár",
+      "nem": "M",
+      "szuletesiDatum": "1896",
+      "szuletesiEv": 1896,
+      "halalozasiDatum": "1971"
+    }
+  ],
+  "csaladok": [
+    {
+      "id": 55,
+      "gedcomId": "@F10@",
+      "hazassagDatum": "1895",
+      "szuloIdk": [
+        23,
+        22
+      ],
+      "gyermekIdk": [
+        33
+      ]
+    },
+    {
+      "id": 61,
+      "gedcomId": "@F16@",
+      "hazassagDatum": null,
+      "szuloIdk": [
+        27
+      ],
+      "gyermekIdk": [
+        38
+      ]
+    },
+    {
+      "id": 58,
+      "gedcomId": "@F13@",
+      "hazassagDatum": "1948",
+      "szuloIdk": [
+        39,
+        34
+      ],
+      "gyermekIdk": [
+        40,
+        41
+      ]
+    },
+    {
+      "id": 54,
+      "gedcomId": "@F9@",
+      "hazassagDatum": "1919",
+      "szuloIdk": [
+        24,
+        33
+      ],
+      "gyermekIdk": [
+        35,
+        34
+      ]
+    },
+    {
+      "id": 53,
+      "gedcomId": "@F8@",
+      "hazassagDatum": "1895",
+      "szuloIdk": [
+        17,
+        21
+      ],
+      "gyermekIdk": [
+        32
+      ]
+    },
+    {
+      "id": 59,
+      "gedcomId": "@F14@",
+      "hazassagDatum": "1953",
+      "szuloIdk": [
+        37,
+        36
+      ],
+      "gyermekIdk": [
+        42
+      ]
+    },
+    {
+      "id": 56,
+      "gedcomId": "@F11@",
+      "hazassagDatum": "1920",
+      "szuloIdk": [
+        25,
+        30
+      ],
+      "gyermekIdk": [
+        36
+      ]
+    },
+    {
+      "id": 57,
+      "gedcomId": "@F12@",
+      "hazassagDatum": "1928",
+      "szuloIdk": [
+        32,
+        28
+      ],
+      "gyermekIdk": [
+        37
+      ]
+    },
+    {
+      "id": 52,
+      "gedcomId": "@F7@",
+      "hazassagDatum": "1864",
+      "szuloIdk": [
+        11,
+        12
+      ],
+      "gyermekIdk": [
+        18
+      ]
+    },
+    {
+      "id": 47,
+      "gedcomId": "@F2@",
+      "hazassagDatum": "1868",
+      "szuloIdk": [
+        9,
+        10
+      ],
+      "gyermekIdk": [
+        17,
+        16
+      ]
+    },
+    {
+      "id": 60,
+      "gedcomId": "@F15@",
+      "hazassagDatum": "1978",
+      "szuloIdk": [
+        43,
+        40
+      ],
+      "gyermekIdk": [
+        45,
+        44
+      ]
+    },
+    {
+      "id": 51,
+      "gedcomId": "@F6@",
+      "hazassagDatum": "1893",
+      "szuloIdk": [
+        18,
+        14
+      ],
+      "gyermekIdk": [
+        31,
+        30
+      ]
+    },
+    {
+      "id": 49,
+      "gedcomId": "@F4@",
+      "hazassagDatum": "1898",
+      "szuloIdk": [
+        19,
+        15
+      ],
+      "gyermekIdk": [
+        27
+      ]
+    },
+    {
+      "id": 46,
+      "gedcomId": "@F1@",
+      "hazassagDatum": "1866",
+      "szuloIdk": [
+        8,
+        7
+      ],
+      "gyermekIdk": [
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "id": 48,
+      "gedcomId": "@F3@",
+      "hazassagDatum": "1891",
+      "szuloIdk": [
+        13,
+        16
+      ],
+      "gyermekIdk": [
+        24,
+        26,
+        25
+      ]
+    },
+    {
+      "id": 50,
+      "gedcomId": "@F5@",
+      "hazassagDatum": "1904",
+      "szuloIdk": [
+        20,
+        15
+      ],
+      "gyermekIdk": [
+        29,
+        28
+      ]
+    }
+  ],
+  "profilkepek": []
+}

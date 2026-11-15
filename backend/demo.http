@@ -122,3 +122,28 @@ DELETE {{host}}/api/csaladfak/{{belaFaId}}
 
 ### 18. Fotó törlése (a fájl is lekerül a lemezről)
 DELETE {{host}}/api/kepek/{{kepId}}
+
+# --- 5. sprint: a frontend elrendező algoritmusának demója ---
+
+### 19. A Kovács család importja (6 generáció, többszörös házasság, unokatestvér-házasság / ősvesztés)
+# @name kovacsImport
+POST {{host}}/api/csaladfak
+Content-Type: multipart/form-data; boundary=HATAR
+
+--HATAR
+Content-Disposition: form-data; name="nev"
+
+Kovács család
+--HATAR
+Content-Disposition: form-data; name="tulajdonos"
+
+demo
+--HATAR
+Content-Disposition: form-data; name="fajl"; filename="kovacs-csalad.ged"
+Content-Type: text/plain
+
+< ../demo-adatok/kovacs-csalad.ged
+--HATAR--
+
+### 20. A gráf, amelyből a frontend rajzol. A böngészőben: http://localhost:5173/?fa=<a fenti válasz id-ja>
+GET {{host}}/api/csaladfak/{{kovacsImport.response.body.$.id}}/graf
